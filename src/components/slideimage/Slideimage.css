@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background: #000; */
+}
+.carousel {
+  display: flex;
+  justify-content: center;
+  background: #000;
+}
+
+.carousel .slide {
+  height: 50vh;
+}
+.carousel .slide img {
+  max-height: 100%;
+  width: auto;
+}
+.image {
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
