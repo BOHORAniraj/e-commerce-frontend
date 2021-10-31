@@ -1,4 +1,3 @@
-
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, BrowserRouter} from "react-router-dom"
 import Register from "./pages/registerUser/Register";
@@ -7,6 +6,7 @@ import Home from './pages/homepage/Home';
 
 import Slideimage from './components/slideimage/Slideimage';
 import Naav from './components/navbar/Navbar';
+import { Emailverification } from './pages/email-verification/Emailverification';
 
 
 
@@ -18,10 +18,12 @@ function App() {
         
         <main>
         <Route path="/home" children={<Slideimage/>} />
-          <Route path="/home" children={<Home />} />
+        <Route path="/home" children={<Home />} />
+        <Route path="/email-verification" children={<Emailverification />} />
+
           
         <Route path="/registration" children={<Register />} />
-          <Route path="/login" children={<Login/> }/>
+        <Route path="/login" children={<Login/> }/>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

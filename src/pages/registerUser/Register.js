@@ -51,7 +51,7 @@ const Register = () => {
             <Card className="p-3 reg-form" >
             <h2>Register new user</h2>
                 <hr />
-                {isPending && <Spinner variant="proimary" animation="border" />}
+                {isPending && <Spinner variant="primary" animation="border" />}
                 {userRegisterResponse?.message && (
                     <Alert variant={userRegisterResponse?.status === "success" ? "success" : "danger"}>{userRegisterResponse?.message}</Alert>)}
 
