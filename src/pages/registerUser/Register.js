@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { userRegister } from './userAction'
+import { userRegister } from '../user-auth-slice/userAction'
 import {useDispatch, useSelector} from 'react-redux'
 import { Form, Card, InputGroup, Button, Spinner ,Alert} from "react-bootstrap"
 

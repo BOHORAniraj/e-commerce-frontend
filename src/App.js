@@ -7,6 +7,7 @@ import Home from './pages/homepage/Home';
 import Slideimage from './components/slideimage/Slideimage';
 import Naav from './components/navbar/Navbar';
 import { Emailverification } from './pages/email-verification/Emailverification';
+import {PrivateRoute} from "./components/private-route/PrivateRoute"
 
 
 
