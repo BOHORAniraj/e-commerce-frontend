@@ -1,15 +1,16 @@
 
 import React, {useState ,useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from "react-router-dom";
+import { useHistory,useLocation } from "react-router-dom";
 import { Card, Form, Button,Spinner,Alert } from 'react-bootstrap'
-import {UserLogin} from '../user-auth-slice/userAction'
+import {UserLogin ,autoLogin} from '../user-auth-slice/userAction'
 
 const initialState = {
     email:"qaq@gmail.com",
     password:"12345678",
 }
 const Login = () => {
+    const location = useLocation();
     const history = useHistory();
     const dispatch = useDispatch();
     const { isLoggedIn, isPending, userLoginResp } = useSelector(state => state.user)
@@ -17,9 +18,13 @@ const Login = () => {
 
     const [loginInfo, setLoginInfo] = useState(initialState);
 
+    const from = location?.state?.from?.pathname || "/home";
+
     useEffect(() => {
-		isLoggedIn && history.push("/home");
-	}, [isLoggedIn, history]);
+        !isLoggedIn && dispatch(autoLogin());
+
+        isLoggedIn && history.replace(from);
+	}, [isLoggedIn, history, dispatch, from]);
 
 
 

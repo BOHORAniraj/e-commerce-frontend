@@ -1,9 +1,13 @@
 import React from 'react'
 
+
+
+
 const Home = () => {
+    
     return (
         <div>
-           HomeScreen 
+        home screen
         </div>
     )
 }

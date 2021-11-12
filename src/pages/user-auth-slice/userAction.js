@@ -1,5 +1,6 @@
-import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess } from './userSlice'
-import {createUser , VerifyNewUser,loginUser} from '../../api/userAPI'
+import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess } from './userSlice'
+import { createUser, VerifyNewUser, loginUser } from '../../api/userAPI'
+import {getNewAccessJWT} from "../../api/tokenAPI"
 
 
 export const userRegister = newUser => async dispatch => {
