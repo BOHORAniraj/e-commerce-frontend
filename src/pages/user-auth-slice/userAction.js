@@ -1,5 +1,5 @@
 import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess } from './userSlice'
-import { createUser, VerifyNewUser, loginUser } from '../../api/userAPI'
+import { createUser, VerifyNewUser, loginUser ,logoutUser } from '../../api/userAPI'
 import {getNewAccessJWT} from "../../api/tokenAPI"
 
 
@@ -67,7 +67,12 @@ export const autoLogin = () => async dispatch => {
 	}
 };
 
-export const userLogOut = () => dispatch => {
+export const userLogOut = () => async dispatch => {
+	const accessJWT = window.sessionStorage.getItem("accessJWT");
+	const refreshJWT = window.localStorage.getItem("refreshJWT");
+
+	await logoutUser({ accessJWT, refreshJWT });
+
 	window.sessionStorage.removeItem("accessJWT");
 	window.localStorage.removeItem("refreshJWT");
 	dispatch(userLogOutSuccess());

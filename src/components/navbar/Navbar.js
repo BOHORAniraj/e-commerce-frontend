@@ -6,7 +6,10 @@ import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { userLogOut } from "../../pages/user-auth-slice/userAction";
 const Naav = () => {
   const dispatch = useDispatch()
-  const {isLoggedIn} = useSelector((state) => state.user)
+  const { isLoggedIn } = useSelector((state) => state.user)
+  const handleOnLogout = () => {
+    dispatch(userLogOut())
+  }
     return (
         <div>
           <div className="bname">NK collection</div>
@@ -30,7 +33,7 @@ const Naav = () => {
                   <Nav.Link href="/home">Home</Nav.Link>
                   <Nav.Link href="#action2">Products</Nav.Link>
                   <Nav.Link href="/login" >Contact us </Nav.Link>
-                  <Nav.Link href="/home" onClick ={() => dispatch(userLogOut())} >SignOut </Nav.Link>
+                  <Nav.Link href="/home" onClick ={handleOnLogout} >SignOut </Nav.Link>
                   </>
                 )}
         
