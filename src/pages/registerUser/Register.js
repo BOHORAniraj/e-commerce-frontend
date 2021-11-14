@@ -19,7 +19,8 @@ const Register = () => {
     const [user, setUser] = useState(initialState);
     const [passwordError, setPasswordError] = useState("");
 
-    const {isPending,userRegisterResponse} = useSelector(state => state.user)
+    const { isPending, userRegisterResponse } = useSelector(state => state.user)
+    
 
 
 
@@ -32,7 +33,7 @@ const Register = () => {
 		passwordError && name === "confirmPassword" && setPasswordError("");
 		setUser({
 			...user,
-			[name]: value,
+			[name]: value, 
 		});
 	};
     const handleOnSubmit = e => {

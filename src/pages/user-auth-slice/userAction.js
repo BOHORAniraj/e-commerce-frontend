@@ -49,6 +49,7 @@ export const autoLogin = () => async dispatch => {
 	dispatch(autoLoginPending(true));
 	const accessJWT = window.sessionStorage.getItem("accessJWT");
 	const refreshJWT = window.localStorage.getItem("refreshJWT");
+	
 	//accessJWT exist
 	if (accessJWT) {
 		return dispatch(loginAuto());

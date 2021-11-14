@@ -9,6 +9,8 @@ import Slideimage from './components/slideimage/Slideimage';
 import Naav from './components/navbar/Navbar';
 import { Emailverification } from './pages/email-verification/Emailverification';
 import { PrivateRoute } from "./components/private-route/PrivateRoute"
+import UserProfile from './pages/Userprofile/UserProfile';
+import ContactUs from './pages/contactus/ContactUs';
 
 
 
@@ -21,11 +23,12 @@ function App() {
       <div className="grid-container">
         
         <main>
-        <Route path="/" children={<Naav/>} /> 
-        <Route path="/home" children={<Slideimage/>} />
+        <Route path="/" > <Naav/></Route> 
+        <PrivateRoute path="/home" children={<Slideimage/>} />
         <Route path="/home" children={<Home />} />
-        <Route path="/email-verification" children={<Emailverification />} />
-
+          <Route path="/email-verification" children={<Emailverification />} />
+          <Route path="/profile" children={<UserProfile />} />
+          <Route path="/contactus" children={<ContactUs />} />
           
         <Route path="/registration" children={<Register />} />
         <Route path="/login" children={<Login/> }/>

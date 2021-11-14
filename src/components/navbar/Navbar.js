@@ -1,9 +1,11 @@
 import React from 'react'
 import Button from '@restart/ui/esm/Button';
-import { useSelector , useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
 
 import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { userLogOut } from "../../pages/user-auth-slice/userAction";
+import { NavLink } from 'react-router-dom';
 const Naav = () => {
   const dispatch = useDispatch()
   const { isLoggedIn } = useSelector((state) => state.user)
@@ -18,22 +20,24 @@ const Naav = () => {
     <Navbar.Brand href="/"> ------------- </Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
-      <Nav className="navbar sticky-top me-auto my-2 my-lg-0"
+      <Nav className="navbar sticky-top ms-auto my-2 my-lg-0"
         style={{ maxHeight: '100px' }}
                 navbarScroll>
                 {!isLoggedIn ? (
                   <>
-                  <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="#action2">Products</Nav.Link>
-                  <Nav.Link href="/login" >Contact us </Nav.Link>
-                  <Nav.Link href="/login" >Sign In </Nav.Link>
+                  <NavLink to="/home">Home</NavLink>
+                  <NavLink to="#action2">Products</NavLink>
+                  <NavLink to="/contactus" >Contact us </NavLink>
+                  <NavLink to="/login" >Sign In </NavLink>
                   </>
                 ) : (
                     <>
-                  <Nav.Link href="/home">Home</Nav.Link>
-                  <Nav.Link href="#action2">Products</Nav.Link>
-                  <Nav.Link href="/login" >Contact us </Nav.Link>
-                  <Nav.Link href="/home" onClick ={handleOnLogout} >SignOut </Nav.Link>
+                  <NavLink to="/home">Home</NavLink>
+                  <NavLink to="#action2">Products</NavLink>
+                      <NavLink to="/contactus" >Contact us </NavLink>
+                      <NavLink to="/profile" > Profile </NavLink>
+                      
+                  <NavLink to="/home" onClick ={handleOnLogout} >SignOut </NavLink>
                   </>
                 )}
         
