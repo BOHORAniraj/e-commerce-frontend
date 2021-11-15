@@ -13,14 +13,14 @@ const Naav = () => {
     dispatch(userLogOut())
   }
     return (
-        <div>
+        <div className="d-flex justify-content-between">
           <div className="bname">NK collection</div>
-      <Navbar   bg="light" expand="lg">
+      <Navbar bg="light" expand="lg">
   <Container fluid>
-    <Navbar.Brand href="/"> ------------- </Navbar.Brand>
+    {/* <Navbar.Brand href="/"> ------------- </Navbar.Brand> */}
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
-      <Nav className="navbar sticky-top ms-auto my-2 my-lg-0"
+      <Nav className="navbar sticky-top ma-auto my-2 my-lg-0"
         style={{ maxHeight: '100px' }}
                 navbarScroll>
                 {!isLoggedIn ? (

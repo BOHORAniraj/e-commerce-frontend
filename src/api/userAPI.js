@@ -41,6 +41,23 @@ export const loginUser = async info => {
 		};
 	}
 };
+export const getUser = async info => {
+	try {
+        const { data } = await axios.get(userApi, {
+            headers: {
+                authorization: window.sessionStorage.getItem("accessJWT"),
+            }
+        });
+		return data;
+	} catch (error) {
+		console.log(error);
+        return error?.response?.data;
+		};
+	}
+;
+
+
+
 export const logoutUser = async tokens => {
 	try {
 		const { data } = await axios.post(userApi + "/logout", tokens);

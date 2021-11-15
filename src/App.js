@@ -27,7 +27,7 @@ function App() {
         <PrivateRoute path="/home" children={<Slideimage/>} />
         <Route path="/home" children={<Home />} />
           <Route path="/email-verification" children={<Emailverification />} />
-          <Route path="/profile" children={<UserProfile />} />
+          <PrivateRoute path="/profile" children={<UserProfile />} />
           <Route path="/contactus" children={<ContactUs />} />
           
         <Route path="/registration" children={<Register />} />

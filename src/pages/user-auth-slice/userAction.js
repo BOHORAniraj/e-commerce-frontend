@@ -1,6 +1,7 @@
 import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess } from './userSlice'
-import { createUser, VerifyNewUser, loginUser ,logoutUser } from '../../api/userAPI'
-import {getNewAccessJWT} from "../../api/tokenAPI"
+import { createUser, VerifyNewUser, loginUser ,logoutUser, getUser } from '../../api/userAPI'
+import {getNewAccessJWT, updateNewAccessJWT} from "../../api/tokenAPI"
+
 
 
 export const userRegister = newUser => async dispatch => {
@@ -78,3 +79,20 @@ export const userLogOut = () => async dispatch => {
 	window.localStorage.removeItem("refreshJWT");
 	dispatch(userLogOutSuccess());
 };
+
+export const fetchUser = () => async dispatch => {
+	dispatch(requestPending());
+	const data = await getUser();
+
+	if (data?.user === "jwt expired") {
+		const token = await updateNewAccessJWT();
+		if (token) {
+			return dispatch(fetchUser())
+		}
+		else {
+			dispatch(userLogOut());
+		}
+		return dispatch(loginSuccess(data.user));
+	}
+	dispatch(requestFail(data));
+}
