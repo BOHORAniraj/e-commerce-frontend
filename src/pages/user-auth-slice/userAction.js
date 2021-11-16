@@ -1,5 +1,5 @@
-import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess } from './userSlice'
-import { createUser, VerifyNewUser, loginUser ,logoutUser, getUser } from '../../api/userAPI'
+import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess, profileUpdateSuccess } from './userSlice'
+import { createUser, VerifyNewUser, loginUser ,logoutUser, getUser, UpdateProfile } from '../../api/userAPI'
 import {getNewAccessJWT, updateNewAccessJWT} from "../../api/tokenAPI"
 
 
@@ -95,4 +95,21 @@ export const fetchUser = () => async dispatch => {
 		return dispatch(loginSuccess(data.user));
 	}
 	dispatch(requestFail(data));
+}
+
+export const updateUserProfile = userInfo => async dispatch => {
+	dispatch(requestPending());
+	const data = await UpdateProfile(userInfo)
+
+	if (data?.message === "jwt expired") {
+		const token = await updateNewAccessJWT();
+
+		if (token) {
+			return dispatch(updateUserProfile(userInfo))
+		} else {
+			dispatch(userLogOut());
+		}
+	}
+	dispatch(profileUpdateSuccess(data));
+	
 }

@@ -11,6 +11,7 @@ import { Emailverification } from './pages/email-verification/Emailverification'
 import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import UserProfile from './pages/Userprofile/UserProfile';
 import ContactUs from './pages/contactus/ContactUs';
+import UpdateProfile from './pages/updateprofile/UpdateProfile'
 
 
 
@@ -32,6 +33,7 @@ function App() {
           
         <Route path="/registration" children={<Register />} />
         <Route path="/login" children={<Login/> }/>
+        <Route path="/updateProfile" children={<UpdateProfile/> }/>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

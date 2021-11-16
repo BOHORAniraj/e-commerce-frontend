@@ -69,3 +69,19 @@ export const logoutUser = async tokens => {
 		};
 	}
 };
+
+
+export const UpdateProfile = async userInfo => {
+    try {
+        const { data } = await axios.patch(userApi, userInfo, {
+            headers: {
+                authorization: window.sessionStorage.getItem("accessJWT"),
+           } 
+        })
+        return data;
+    } catch (error) {
+        console.log(error);
+        return error?.response?.data;
+        
+    }
+}

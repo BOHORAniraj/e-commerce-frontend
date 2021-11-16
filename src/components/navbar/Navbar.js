@@ -13,31 +13,31 @@ const Naav = () => {
     dispatch(userLogOut())
   }
     return (
-        <div className="d-flex justify-content-between">
+        <div >
           <div className="bname">NK collection</div>
       <Navbar bg="light" expand="lg">
   <Container fluid>
     {/* <Navbar.Brand href="/"> ------------- </Navbar.Brand> */}
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
-      <Nav className="navbar sticky-top ma-auto my-2 my-lg-0"
+      <Nav className="navbar sticky-top ms-auto my-2 my-lg-0"
         style={{ maxHeight: '100px' }}
                 navbarScroll>
                 {!isLoggedIn ? (
                   <>
-                  <NavLink to="/home">Home</NavLink>
-                  <NavLink to="#action2">Products</NavLink>
-                  <NavLink to="/contactus" >Contact us </NavLink>
-                  <NavLink to="/login" >Sign In </NavLink>
+                  <NavLink className="top-nav-item" to="/home">Home</NavLink>
+                  <NavLink className="top-nav-item" to="#action2">Products</NavLink>
+                  <NavLink className="top-nav-item" to="/contactus" >Contact us </NavLink>
+                  <NavLink className="top-nav-item" to="/login" >Sign In </NavLink>
                   </>
                 ) : (
                     <>
-                  <NavLink to="/home">Home</NavLink>
-                  <NavLink to="#action2">Products</NavLink>
-                      <NavLink to="/contactus" >Contact us </NavLink>
-                      <NavLink to="/profile" > Profile </NavLink>
+                  <NavLink className="top-nav-item" to="/home">Home</NavLink>
+                  <NavLink className="top-nav-item" to="#action2">Products</NavLink>
+                      <NavLink className="top-nav-item" to="/contactus" >Contact us </NavLink>
+                      <NavLink className="top-nav-item" to="/profile" > Profile </NavLink>
                       
-                  <NavLink to="/home" onClick ={handleOnLogout} >SignOut </NavLink>
+                  <NavLink className="top-nav-item" to="/home" onClick ={handleOnLogout} >SignOut </NavLink>
                   </>
                 )}
         
