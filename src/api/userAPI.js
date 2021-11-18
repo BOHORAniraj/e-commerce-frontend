@@ -86,3 +86,17 @@ export const UpdateProfile = async userInfo => {
         
     }
 }
+export const UpdatePass = async passInfo => {
+    try {
+        const { data } = await axios.post(userApi, passInfo, {
+            headers: {
+                authorization:window.sessionStorage.getItem("accessJWT"),
+            }
+        })
+        return data;
+    } catch (error) {
+        console.log(error);
+        return error?.response?.data;
+        
+    }
+}

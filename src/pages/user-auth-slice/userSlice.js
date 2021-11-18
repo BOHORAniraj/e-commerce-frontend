@@ -52,10 +52,15 @@ const userSlice = createSlice({
             state.userUpdateResp = payload;
             state.isPending = false;
         },
+        passwordUpdateSuccess: (state, { payload }) => {
+            state.userUpdateResp = payload;
+            state.isPending = false;
+        },
+
     }
 })
 const { reducer, actions } = userSlice;
 
-export const {requestPending, loginSuccess,loginFail,requestFail,responseSuccess,loginAuto,autoLoginPending,userLogOutSuccess,profileUpdateSuccess} = actions
+export const {requestPending, loginSuccess,loginFail,requestFail,responseSuccess,loginAuto,autoLoginPending,userLogOutSuccess,profileUpdateSuccess,passwordUpdateSuccess} = actions
 
 export default reducer;

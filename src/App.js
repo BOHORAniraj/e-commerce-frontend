@@ -12,6 +12,7 @@ import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import UserProfile from './pages/Userprofile/UserProfile';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateProfile from './pages/updateprofile/UpdateProfile'
+import ResetPass from './pages/resetPassword/ResetPass';
 
 
 
@@ -25,7 +26,7 @@ function App() {
         
         <main>
         <Route path="/" > <Naav/></Route> 
-        <PrivateRoute path="/home" children={<Slideimage/>} />
+        <Route path="/home" children={<Slideimage/>} />
         <Route path="/home" children={<Home />} />
           <Route path="/email-verification" children={<Emailverification />} />
           <PrivateRoute path="/profile" children={<UserProfile />} />
@@ -33,14 +34,14 @@ function App() {
           
         <Route path="/registration" children={<Register />} />
         <Route path="/login" children={<Login/> }/>
-        <Route path="/updateProfile" children={<UpdateProfile/> }/>
+          <PrivateRoute path="/updateProfile" children={<UpdateProfile />} />
+          <Route path="/resetPasssword" children={<ResetPass/> }/>
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
       
     </BrowserRouter>
-
-   
+ 
     
   );
 }

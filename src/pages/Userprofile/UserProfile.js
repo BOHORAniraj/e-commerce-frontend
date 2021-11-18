@@ -24,7 +24,10 @@ const UserProfile = () => {
                   <div className="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"/>
                     <div className="mt-3">
-                    <h4>WELCOME {userInfo.fname }</h4>
+                      <h4>WELCOME {userInfo.fname}</h4>
+                      
+                      <i class="fas fa-user-edit"></i><Link className="top-nav-item" to="/updateProfile">Edit</Link>
+                      <i class="fas fa-key"></i><Link className="top-nav-item" to="/resetPasssword">Reset Password</Link>
                       
                     </div>
                   </div>
@@ -103,11 +106,11 @@ const UserProfile = () => {
               </div>
             </div>
             <hr/>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-sm-12">
               <Link className="top-nav-item" to="/updateProfile">EDIT</Link>
               </div>
-            </div>
+            </div> */}
           </div>
     </div>
     </div>
