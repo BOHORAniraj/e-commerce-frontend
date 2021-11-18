@@ -44,9 +44,8 @@ const UpdateProfile = () => {
             userInfo.fname !== fname || userInfo.lname !== lname || userInfo.phone !== phone || userInfo.address !== address ) {
             if (window.confirm("Please confirm you want to update your data")) {
                 console.log("from update")
-                console.log(userInfo)
-                console.log(userpro)
-                const {updateddata} = {fname,lname,address,phone}
+                
+                const updateddata = {fname,lname,address,phone}
         dispatch(updateUserProfile(updateddata))
             }
             return

@@ -72,6 +72,7 @@ export const logoutUser = async tokens => {
 
 
 export const UpdateProfile = async userInfo => {
+    
     try {
         const { data } = await axios.patch(userApi, userInfo, {
             headers: {
