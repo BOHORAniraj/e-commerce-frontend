@@ -12,7 +12,7 @@ import { PrivateRoute } from "./components/private-route/PrivateRoute"
 import UserProfile from './pages/Userprofile/UserProfile';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateProfile from './pages/updateprofile/UpdateProfile'
-import ResetPass from './pages/resetPassword/ResetPass';
+import { ResetPass } from './pages/resetPassword/ResetPass';
 
 
 

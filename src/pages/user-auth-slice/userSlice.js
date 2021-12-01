@@ -53,7 +53,7 @@ const userSlice = createSlice({
             state.isPending = false;
         },
         passwordUpdateSuccess: (state, { payload }) => {
-            state.userUpdateResp = payload;
+            state.userUpdateResp = payload ;
             state.isPending = false;
         },
 

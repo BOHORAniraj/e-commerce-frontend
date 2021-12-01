@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import './ResetPass.css'
-import { Button,Spinner,Alert} from 'react-bootstrap'
+import {Form,Button,Spinner,Alert,ListGroup} from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUserPassword } from '../user-auth-slice/userAction'
 
@@ -66,6 +66,7 @@ export const ResetPass = () => {
 
     const handleOnSubmit = e => {
         e.preventDefault();
+        
 
         const { currentPassword, password } = updatePassword;
         dispatch(updateUserPassword({currentPassword,password}))
@@ -79,13 +80,11 @@ export const ResetPass = () => {
             {isPending && <Spinner variant="primary" animation="border" />}
 
 {userUpdateResp?.message && (
-    <Alert
-        variant={userUpdateResp?.status === "success" ? "success" : "danger"}
-    >
+    <Alert variant={userUpdateResp?.status === "success" ? "success" : "danger"}>
         {userUpdateResp?.message}
     </Alert>
 )}
-            <form onSubmit={handleOnSubmit}>
+            <Form onSubmit={handleOnSubmit}>
             <div className="neeru">
             <div className="karuna">
                 <input name="currentPassword" type="password" onChange={handleOnChange} required/>
@@ -101,11 +100,39 @@ export const ResetPass = () => {
             </div>
 
                 </div>
+
+                <ListGroup>
+					<ListGroup.Item variant={passError.isMatched ? "success" : "danger"}>
+						Password doesn't match
+					</ListGroup.Item>
+					<ListGroup.Item variant={passError.isLength ? "success" : "danger"}>
+						must be at least 8 character
+					</ListGroup.Item>
+					<ListGroup.Item variant={passError.HasNumber ? "success" : "danger"}>
+						must include a number
+					</ListGroup.Item>
+					<ListGroup.Item
+						variant={passError.Uppercase ? "success" : "danger"}
+					>
+						must include uppercase
+					</ListGroup.Item>
+					<ListGroup.Item
+						variant={passError.Lowercase ? "success" : "danger"}
+					>
+						must include lowercase
+					</ListGroup.Item>
+					<ListGroup.Item
+						variant={passError.Specialchar ? "success" : "danger"}
+					>
+						must include on of the following special character i.e. ! @ # $ % ^
+						& * () _
+					</ListGroup.Item>
+				</ListGroup>
                
-                <Button type="submit">SUBMIT</Button>
-            </form>
+                <Button variant="warning" type="submit" disabled={Object.values(passError).includes(false)} >SUBMIT</Button>
+            </Form>
         </div>
     )
 }
 
-export default ResetPass
+
