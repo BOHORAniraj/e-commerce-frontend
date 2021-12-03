@@ -88,7 +88,7 @@ export const UpdateProfile = async userInfo => {
 }
 export const UpdatePass = async passInfo => {
     try {
-        const { data } = await axios.post(userApi,"/password-update", passInfo, {
+        const { data } = await axios.post(userApi + "/password-update", passInfo, {
             headers: {
                 authorization:window.sessionStorage.getItem("accessJWT"),
             }

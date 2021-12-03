@@ -5,11 +5,11 @@ body {
   background-color: #e2e8f0;
 }
 
-.card {
+.cardss {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.card {
+.cardss {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,7 +25,3 @@ body {
   min-height: 1px;
   padding: 1rem;
 }
-/* .profile {
-  display: flex;
-  justify-content: space-between;
-} */

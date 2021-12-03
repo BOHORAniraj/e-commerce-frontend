@@ -84,19 +84,19 @@ export const ResetPass = () => {
         {userUpdateResp?.message}
     </Alert>
 )}
-            <Form onSubmit={handleOnSubmit}>
+            <Form className="formpass" onSubmit={handleOnSubmit}>
             <div className="neeru">
             <div className="karuna">
                 <input name="currentPassword" type="password" onChange={handleOnChange} required/>
-                <label > Current Password</label>
+                <label className="tt"> Current Password</label>
             </div>
             <div className="karuna">
                 <input name="password" type="password" onChange={handleOnChange} required/>
-                <label >New Password</label>
+                <label className="tt">New Password</label>
             </div>
             <div className="karuna">
                 <input name="confirmPassword" type="password" onChange={handleOnChange} required/>
-                <label >Confirm Your New Password</label>
+                <label className="tt">Confirm Your New Password</label>
             </div>
 
                 </div>
@@ -129,7 +129,7 @@ export const ResetPass = () => {
 					</ListGroup.Item>
 				</ListGroup>
                
-                <Button variant="warning" type="submit" disabled={Object.values(passError).includes(false)} >SUBMIT</Button>
+                <Button className="buttonpass"variant="warning" type="submit" disabled={Object.values(passError).includes(false)} >SUBMIT</Button>
             </Form>
         </div>
     )

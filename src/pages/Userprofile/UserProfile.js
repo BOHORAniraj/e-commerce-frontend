@@ -1,4 +1,4 @@
-import { Button, Container ,Row } from 'react-bootstrap';
+import {  Container ,Row } from 'react-bootstrap';
 import React, {useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { fetchUser } from '../user-auth-slice/userAction';
@@ -19,7 +19,7 @@ const UserProfile = () => {
       <div>
 <div className="row gutters-sm">
             <div className="col-md-4 mb-3">
-              <div className="card">
+              <div className="cardss">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" className="rounded-circle" width="150"/>
@@ -27,7 +27,7 @@ const UserProfile = () => {
                       <h4>WELCOME {userInfo.fname}</h4>
                       
                       <i class="fas fa-user-edit"></i><Link className="top-nav-item" to="/updateProfile">Edit</Link>
-                      <i class="fas fa-key"></i><Link className="top-nav-item" to="/resetPasssword">Reset Password</Link>
+                      <i class="fas fa-key"></i><Link className="top-nav-item" to="/resetPasssword">Update Password</Link>
                       
                     </div>
                   </div>

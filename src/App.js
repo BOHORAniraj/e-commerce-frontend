@@ -13,6 +13,7 @@ import UserProfile from './pages/Userprofile/UserProfile';
 import ContactUs from './pages/contactus/ContactUs';
 import UpdateProfile from './pages/updateprofile/UpdateProfile'
 import { ResetPass } from './pages/resetPassword/ResetPass';
+import  Forgetpass  from './pages/forgetpass/Forgetpass';
 
 
 
@@ -28,14 +29,14 @@ function App() {
         <Route path="/" > <Naav/></Route> 
         <Route path="/home" children={<Slideimage/>} />
         <Route path="/home" children={<Home />} />
-          <Route path="/email-verification" children={<Emailverification />} />
-          <PrivateRoute path="/profile" children={<UserProfile />} />
-          <Route path="/contactus" children={<ContactUs />} />
-          
+        <Route path="/email-verification" children={<Emailverification />} />
+        <PrivateRoute path="/profile" children={<UserProfile />} />
+        <Route path="/contactus" children={<ContactUs />} />          
         <Route path="/registration" children={<Register />} />
         <Route path="/login" children={<Login/> }/>
-          <PrivateRoute path="/updateProfile" children={<UpdateProfile />} />
-          <Route path="/resetPasssword" children={<ResetPass/> }/>
+        <PrivateRoute path="/updateProfile" children={<UpdateProfile />} />
+        <Route path="/resetPasssword" children={<ResetPass />} />
+        <Route path="/forgetPass" children={<Forgetpass />} />
         </main>
         <footer className="row center">All right reserved</footer>
       </div>

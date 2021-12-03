@@ -1,9 +1,9 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   font-family: "poppins", sans-serif;
   box-sizing: border-box;
-}
+} */
 
 .niraj {
   width: 100%;
@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: center;
 }
-form {
+.formpass {
   width: 90%;
   max-width: 600px;
 }
@@ -34,7 +34,7 @@ textarea {
   background: transparent;
   font-size: 15px;
 }
-label {
+.tt {
   height: 100%;
   position: absolute;
   left: 0;
@@ -44,7 +44,7 @@ label {
   cursor: text;
   transition: 0.2s;
 }
-button {
+.buttonpass {
   padding: 10px;
   color: #fff;
   outline: none;

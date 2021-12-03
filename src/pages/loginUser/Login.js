@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <div className="register-page mb-5">
             <Card className="p-3 reg-form">
-                <h2>LOGIN</h2>
+                <div className="title">-LOGIN-</div>
                 {isPending && <Spinner variant="primary" animation="border" />}
 				{userLoginResp?.message && (
 					<Alert
@@ -87,9 +87,15 @@ const Login = () => {
                 </Form.Group>
                 
 
-                <Button type = "submit" variant="success">LOGIN</Button>
+                    <Button className="Forgetpass" type="submit" variant="success">LOGIN</Button>
+                    <br/>
+                    <Button className="Forgetpass mt-3" variant="success"><a href="/registration">Register Now</a></Button>
+                    <br/>
+                    <Button className="Forgetpass mt-3" variant="success"><a href="/forgetPass">Forgot Password</a></Button>
+                    
                 </Form>
-                <a href ="/registration">Register Now</a>
+                
+                
         </Card>
 
         

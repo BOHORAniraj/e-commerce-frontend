@@ -50,7 +50,7 @@ const Register = () => {
     return (
         <div className="register-page mb-5">
             <Card className="p-3 reg-form" >
-            <h2>Register new user</h2>
+            <div className="title">REGISTER NEW USER</div>
                 <hr />
                 {isPending && <Spinner variant="primary" animation="border" />}
                 {userRegisterResponse?.message && (
