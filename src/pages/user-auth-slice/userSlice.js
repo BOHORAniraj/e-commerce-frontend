@@ -7,7 +7,9 @@ const initialState = {
     isPending: false,
     userUpdateResp: {},
     userRegisterResponse: {},
-    isAutoLoginPending:false,
+    isAutoLoginPending: false,
+    forgotPassRes: {},
+    passwordResettingEmail:"",
 }
 
 const userSlice = createSlice({
@@ -56,11 +58,18 @@ const userSlice = createSlice({
             state.userUpdateResp = payload ;
             state.isPending = false;
         },
+        forgotPassResponse: (state,{payload}) => {
+            state.isPending = false;
+            state.forgotPassRes = payload || {};
+            state.passwordResettingEmail = payload.email;
+
+            
+        },
 
     }
 })
 const { reducer, actions } = userSlice;
 
-export const {requestPending, loginSuccess,loginFail,requestFail,responseSuccess,loginAuto,autoLoginPending,userLogOutSuccess,profileUpdateSuccess,passwordUpdateSuccess} = actions
+export const {requestPending, loginSuccess,loginFail,requestFail,responseSuccess,loginAuto,autoLoginPending,userLogOutSuccess,profileUpdateSuccess,passwordUpdateSuccess,forgotPassResponse} = actions
 
 export default reducer;

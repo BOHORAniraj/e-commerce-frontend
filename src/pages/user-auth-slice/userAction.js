@@ -1,6 +1,6 @@
-import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess, profileUpdateSuccess, passwordUpdateSuccess } from './userSlice'
-import { createUser, VerifyNewUser, loginUser ,logoutUser, getUser, UpdateProfile, UpdatePass } from '../../api/userAPI'
-import {getNewAccessJWT, updateNewAccessJWT} from "../../api/tokenAPI"
+import { requestPending, requestFail,responseSuccess,loginFail,loginSuccess,autoLoginPending,loginAuto,userLogOutSuccess, profileUpdateSuccess, passwordUpdateSuccess, forgotPassResponse } from './userSlice'
+import { createUser, VerifyNewUser, loginUser ,logoutUser, getUser, UpdateProfile, UpdatePass, resetForgetPassword } from '../../api/userAPI'
+import {getNewAccessJWT, requestOtp, updateNewAccessJWT} from "../../api/tokenAPI"
 
 
 
@@ -128,4 +128,17 @@ export const updateUserPassword = passInfo => async dispatch => {
 		}
 	}
 	dispatch(passwordUpdateSuccess(data));
+}
+
+export const requestPassResetOtp = email => async dispatch => {
+	dispatch(requestPending());
+	const data = await requestOtp(email);
+
+	dispatch(forgotPassResponse({ data, email }));
+};
+export const resetPasswordAction = passObj => async dispatch => {
+	dispatch(requestPending());
+	const data = await resetForgetPassword(passObj)
+
+	dispatch(forgotPassResponse(data))
 }

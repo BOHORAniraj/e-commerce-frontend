@@ -77,9 +77,7 @@ export const ResetPass = () => {
 
     return (
         <div className="niraj">
-            {isPending && <Spinner variant="primary" animation="border" />}
-
-{userUpdateResp?.message && (
+            {isPending && <Spinner variant="primary" animation="border" />}{userUpdateResp?.message && (
     <Alert variant={userUpdateResp?.status === "success" ? "success" : "danger"}>
         {userUpdateResp?.message}
     </Alert>

@@ -14,6 +14,7 @@ import ContactUs from './pages/contactus/ContactUs';
 import UpdateProfile from './pages/updateprofile/UpdateProfile'
 import { ResetPass } from './pages/resetPassword/ResetPass';
 import  Forgetpass  from './pages/forgetpass/Forgetpass';
+import { ForgetpassForm } from './pages/forgetpass/ForgetpassForm';
 
 
 
@@ -37,6 +38,8 @@ function App() {
         <PrivateRoute path="/updateProfile" children={<UpdateProfile />} />
         <Route path="/resetPasssword" children={<ResetPass />} />
         <Route path="/forgetPass" children={<Forgetpass />} />
+        <Route path="/forgotpasswordForm" children={<ForgetpassForm />} />
+          
         </main>
         <footer className="row center">All right reserved</footer>
       </div>
