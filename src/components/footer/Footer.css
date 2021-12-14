@@ -1,0 +1,10 @@
+.main-footer {
+  color: white;
+  background-color: black;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

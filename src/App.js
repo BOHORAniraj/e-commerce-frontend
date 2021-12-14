@@ -15,6 +15,8 @@ import UpdateProfile from './pages/updateprofile/UpdateProfile'
 import { ResetPass } from './pages/resetPassword/ResetPass';
 import  Forgetpass  from './pages/forgetpass/Forgetpass';
 import { ForgetpassForm } from './pages/forgetpass/ForgetpassForm';
+import Footer from './components/footer/Footer';
+import Productscreen from './components/product/Productscreen';
 
 
 
@@ -29,7 +31,8 @@ function App() {
         <main>
         <Route path="/" > <Naav/></Route> 
         <Route path="/home" children={<Slideimage/>} />
-        <Route path="/home" children={<Home />} />
+          <Route path="/home" children={<Home />} />
+          <Route path="/product/:id" children={<Productscreen/>}/>
         <Route path="/email-verification" children={<Emailverification />} />
         <PrivateRoute path="/profile" children={<UserProfile />} />
         <Route path="/contactus" children={<ContactUs />} />          
@@ -41,7 +44,7 @@ function App() {
         <Route path="/forgotpasswordForm" children={<ForgetpassForm />} />
           
         </main>
-        <footer className="row center">All right reserved</footer>
+        <Route path="/"><Footer/></Route>
       </div>
       
     </BrowserRouter>
